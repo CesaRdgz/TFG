@@ -1,0 +1,283 @@
+body{
+    overflow: visible;
+}
+
+.ui-menu{
+    list-style:none;
+    padding-left: 15px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    cursor: default;
+    position: absolute;
+    top:15px !important;
+    width: 282px !important;
+    background: white;
+    box-shadow: 1px 12px 33px rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+}
+.ui-helper-hidden-accessible {
+    display: none;
+}
+
+.foto_perfil{
+    position: absolute;
+    top: 82px;
+    width: 150px;
+    height: 150px;
+    border-radius: 150px;
+    object-fit: cover;
+    object-position: center center;
+}
+
+#titulo{
+    margin-left:300px;
+    margin-top:30px;
+}
+
+.info{
+    margin-top: 40px;
+}
+
+.info_text{
+    padding-top: -10px;
+    margin-left: 30px;
+}
+
+.informacion{
+    color: #34C75D;
+    margin-left: 15px;
+    margin-top: 5px;
+}
+
+.card{
+    border: none;
+    background-color: #F7F6FB;
+
+}
+
+.card-pers{
+    margin-top: 39px;
+    height: 180px;
+}
+
+.row_iconos{
+    margin-top: 20px;
+    font-size: 30px;
+    width: 80%;
+    margin-left: 28%;
+}
+
+.tabs {
+    display: flex;
+    flex-wrap: wrap; // make sure it wraps
+}
+.tabs label {
+    order: 1; // Put the labels first
+display: block;
+    padding: 1rem 2rem;
+    margin-right: 0.2rem;
+    cursor: pointer;
+    background: #34C75D;
+    font-weight: bold;
+    transition: background ease 0.2s;
+    color: white;
+}
+.tabs .tab {
+    order: 99; // Put the tabs last
+flex-grow: 1;
+    width: 100%;
+    display: none;
+    padding: 1rem;
+    background: #fff;
+
+}
+.tabs input[type="radio"] {
+    display: none;
+}
+.tabs input[type="radio"]:checked + label {
+    background: #fff;
+    border: 1px solid #34C75D;
+    color:#34C75D;
+}
+.tabs input[type="radio"]:checked + label + .tab {
+    display: block;
+}
+
+@media (max-width: 45em) {
+    .tabs .tab,
+    .tabs label {
+        order: initial;
+    }
+    .tabs label {
+        width: 100%;
+        margin-right: 0;
+        margin-top: 0.2rem;
+    }
+}
+
+.tabalign{
+    border-radius: 10px;
+    position:relative;
+    left:180px;
+    width:320px;
+    top:-110px
+}
+
+.bi-person-plus{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #34C75D;
+    position:absolute;
+    text-align: center;
+    line-height: 60px;
+    font-size: 30px;
+    color:white;
+    top: 185px;
+    left:100px
+}
+
+.bi-person-plus:hover{
+    background: white;
+    color: #34C75D;
+    border: 1px solid #34C75D;
+}
+
+.bi-person-dash-fill{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #34C75D;
+    position:absolute;
+    text-align: center;
+    line-height: 60px;
+    font-size: 30px;
+    color:white;
+    top: 185px;
+    left:100px
+}
+
+.bi-person-dash-fill:hover{
+    background: white;
+    color: red;
+    border: 1px solid red;
+}
+
+.foto_publicacion{
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    object-fit: cover;
+    object-position: center center;
+}
+
+.tab{
+    margin-left: 70px;
+}
+
+.card-publicacion{
+    height: 250px;
+    width: 200px;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+.nombre{
+    margin-left: 10px;
+    margin-top:210px;
+}
+
+.row_foreach{
+    margin-top:-120px;
+    margin-left: 78px;
+}
+
+.card-publicacion-col12{
+    margin-top: 10px;
+    margin-left: 10px;
+    width:101%
+}
+
+.foto_publicacion-col-12{
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    object-position: center center;
+}
+
+.nombre-col12{
+    margin-top: 10px;
+}
+
+.pieDeFoto_col12{
+    margin-top: 10px;
+}
+
+.hr{
+    margin-left: -25px
+}
+
+.foto_perfil-publicacion{
+    width: 35px;
+    height: 35px;
+    border-radius: 50px;
+    object-fit: cover;
+    object-position: center center;
+    position:absolute;
+    right: 5px;
+    top: 15px;
+    object-fit: cover;
+    object-position: center center;
+}
+
+.foto_perfil-publicacion:hover{
+    width: 40px;
+    height: 40px;
+    margin-left: 297px;
+
+}
+
+.bi-heart2{
+    position:relative;
+    left: 290px;
+    top: 150px;
+    color: black;
+}
+
+.bi-heart2:hover{
+    color: #34C75D;
+    transition: 200ms ease-in-out;
+}
+
+.bi-heart1{
+    position:relative;
+    left: 310px;
+    top: 150px;
+    color: black;
+}
+
+.bi-heart1:hover{
+    color: #34C75D;
+    transition: 200ms ease-in-out;
+}
+
+.bi-heartt{
+    position:absolute;
+    right: 12px;
+    top: 275px;
+    color: black;
+}
+
+.bi-heartt:hover{
+    color: red;
+    transition: 200ms ease-in-out;
+}
+
+.aaaaa{
+    color: black;
+    text-decoration: none;
+}
+
+

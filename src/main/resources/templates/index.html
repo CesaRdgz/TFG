@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Shelter</title>
+    <link href="https://img.icons8.com/external-justicon-flat-justicon/64/000000/external-dog-dog-and-cat-justicon-flat-justicon-10.png"
+          rel="icon">
+    <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" rel="stylesheet">
+    <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css"
+          rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="/css/index.css" rel="stylesheet"/>
+    <link href="/css/verClave.css" rel="stylesheet"/>
+
+</head>
+<body id="body-pd">
+<div class="container-fluid">
+    <div class="row">
+        <header class="header" id="header">
+            <div class="header_toggle"><i class='bx bx-menu' id="header-toggle"></i></div>
+            <div class="col-lg-8 col-md-7 col-sm-5"></div>
+            <div class="col-lg-4 col-md-5 col-sm-7">
+                <div class="input-group container buscador align-content-between">
+                     <input class="form-control col" id="buscador" placeholder="@..." type="text">
+                    <span class="input-group-btn">
+                        <a href="#openModal">
+                            <button class="btn ms-3" id="lupa" type="button">
+                              <i class='bx bx-search-alt-2'></i>
+                            </button>
+                        </a>
+                    </span>
+                </div>
+            </div>
+        </header>
+        <div class="l-navbar" id="nav-bar">
+            <nav class="nav">
+                <div><a class="nav_logo" href="#"> <img
+                        id="logo"
+                        src="https://img.icons8.com/external-justicon-flat-justicon/64/000000/external-dog-dog-and-cat-justicon-flat-justicon-10.png"/>
+                    <span
+                            class="nav_logo-name">Cats&Dogs</span> </a>
+                    <span>
+                            <div class="nav_list">
+                                <a class="nav_link" href="#openModal">
+                                    <i class='bx bx-home-alt-2 nav_icon'></i>
+                                    <span class="nav_name">Inicio</span>
+                                </a>
+                                <a class="nav_link modal" href="#openModal">
+                                    <i class='bx bx-user nav_icon'></i>
+                                    <span class="nav_name">Iniciar Sesion</span>
+                                </a>
+                                <a class="nav_link" href="#openModal">
+                                    <i class="bi bi-gear nav_icon" id="engranaje_ul-dropdown"></i>
+                                    <span class="nav_name" id="ajustes_ul-dropdown">Ajustes  </span>
+                                </a>
+                            </div>
+                        </span>
+                </div>
+                <span>
+                        <a class="nav_link" href="#openModal">
+                            <i class='bx bx-log-out nav_icon'></i>
+                            <span class="nav_name">Cerrar Sesion</span>
+                        </a>
+                    </span>
+            </nav>
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-6">
+        <div class="card card-publicacion-col122 card-publicacion-col11">
+            <span class="row">
+                <div class="col-1">
+                    <img class="foto_publicacion-col-122" src="/img/TioDavid.jpeg">
+                </div>
+                <div class="col-11">
+                    <h3 class="nombre-col122 texto-publicacion">
+                        David con Kinder
+                    </h3>
+                    <hr class="hr">
+                    <p class="pieDeFoto_col12 texto-publicacion"></p>
+                    <a href="#openModal">
+                        <i class="bi bi-heart bi-heartt"></i>
+                    </a>
+                </div>
+            </span>
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="card card-publicacion-col122 card-publicacion-col11">
+            <span class="row">
+                <div class="col-1">
+                    <img class="foto_publicacion-col-122" src="/img/TiaJenny.jpeg">
+                </div>
+                <div class="col-11">
+                    <h3 class="nombre-col122 texto-publicacion">
+                        Jenny con Senda
+                    </h3>
+                    <hr class="hr">
+                    <p class="pieDeFoto_col12 texto-publicacion"></p>
+                    <a href="#openModal">
+                        <i class="bi bi-heart bi-heartt"></i>
+                    </a>
+                </div>
+            </span>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-6">
+        <div class="card card-publicacion-col122 card-publicacion-col11">
+            <span class="row">
+                <div class="col-1">
+                    <img class="foto_publicacion-col-122" src="/img/Elena.jpg">
+                </div>
+                <div class="col-11">
+                    <h3 class="nombre-col122 texto-publicacion">
+                        Elena con simba
+                    </h3>
+                    <hr class="hr">
+                    <p class="pieDeFoto_col12 texto-publicacion"></p>
+                    <a href="#openModal">
+                        <i class="bi bi-heart bi-heartt"></i>
+                    </a>
+                </div>
+            </span>
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="card card-publicacion-col122 card-publicacion-col11">
+            <span class="row">
+                <div class="col-1">
+                    <img class="foto_publicacion-col-122">
+                </div>
+                <div class="col-11">
+                    <h3 class="nombre-col122 texto-publicacion">
+                        Los Rodriguez Gonzalez con Dado
+                    </h3>
+                    <hr class="hr">
+                    <p class="pieDeFoto_col12 texto-publicacion"></p>
+                    <a href="#openModal">
+                        <i class="bi bi-heart bi-heartt"></i>
+                    </a>
+                </div>
+            </span>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-6">
+        <div class="card card-publicacion-col122 card-publicacion-col11">
+            <span class="row">
+                <div class="col-1">
+                    <img class="foto_publicacion-col-122" src="/img/Lucia.jpeg">
+                </div>
+                <div class="col-11">
+                    <h3 class="nombre-col122 texto-publicacion">
+                        Lucia con Juanfan
+                    </h3>
+                    <hr class="hr">
+                    <p class="pieDeFoto_col12 texto-publicacion"></p>
+                    <a href="#openModal">
+                        <i class="bi bi-heart bi-heartt"></i>
+                    </a>
+                </div>
+            </span>
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="card card-publicacion-col122 card-publicacion-col11">
+            <span class="row">
+                <div class="col-1">
+                    <img class="foto_publicacion-col-122" src="/img/Chapa.jpeg">
+                </div>
+                <div class="col-11">
+                    <h3 class="nombre-col122 texto-publicacion">
+                        Cristian con Hannah
+                    </h3>
+                    <hr class="hr">
+                    <p class="pieDeFoto_col12 texto-publicacion"></p>
+                    <a href="#openModal">
+                        <i class="bi bi-heart bi-heartt"></i>
+                    </a>
+                </div>
+            </span>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-6">
+        <div class="card card-publicacion-col122 card-publicacion-col11">
+            <span class="row">
+                <div class="col-1">
+                    <img class="foto_publicacion-col-122" src="/img/Delmiro.jpeg">
+                </div>
+                <div class="col-11">
+                    <h3 class="nombre-col122 texto-publicacion">
+                        Delmiro con Byron
+                    </h3>
+                    <hr class="hr">
+                    <p class="pieDeFoto_col12 texto-publicacion"></p>
+                    <a href="#openModal">
+                        <i class="bi bi-heart bi-heartt"></i>
+                    </a>
+                </div>
+            </span>
+        </div>
+    </div>
+</div>
+
+<div class="modalDialog" id="openModal">
+    <div class="container-fluid">
+        <div class="row mt-3" th:id="row">
+            <div class="mt-1">
+                <a class="close" href="#close" title="Close">X</a>
+                <div class="me-4">
+                    <img th:id="logoli"
+                         src="https://img.icons8.com/external-justicon-flat-justicon/64/000000/external-cat-dog-and-cat-justicon-flat-justicon-5.png">
+                </div>
+                <form method="POST" th:action="@{/registro/login}">
+                    <div class="row">
+                        <div class="col-md-12 mb-1 pb-2">
+                            <div class="form-outline">
+                                <label class="form-label" for="email">Email</label>
+                                <input class="form-control form-control-lg input" id="email"
+                                       name="email"
+                                       type="email"
+                                />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 mb-1 pb-2">
+                            <div class="form-outline">
+                                <label class="form-label" for="contrasena">Contraseña</label>
+                                <div class="buttonIn">
+                                    <input class="form-control form-control-lg contrasena" data-status="pass"
+                                           id="contrasena"
+                                           name="contrasena"
+                                           type="password"
+                                    />
+                                    <button class="mostrar" type="button"><i class="bi bi-eye ojo"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 mb-1 pb-2">
+                            <div class="mt-4 pt-2">
+                                <input class="btn btn-primary btn-lg boton" th:id="vamos"
+                                       style="text-decoration: none" type="submit"
+                                       value="Vamos!"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <p class="mt-3"><small>¿Aún no tienes cuenta? ¿Cómo te quieres registrar? Como <a
+                                th:href="@{/registro/protectora}">Protectora</a> o como <a
+                                th:href="@{/registro/adoptante}">Usuario</a></small></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modalDialog" th:id="openModalError">
+    <div class="container-fluid" th:id="gradiente">
+        <div class="row mt-3" th:id="row">
+            <div class="mt-1">
+                <a class="close" href="#close" title="Close">X</a>
+                <div class="me-4">
+                    <img th:id="logoli"
+                         src="https://img.icons8.com/external-justicon-flat-justicon/64/000000/external-cat-dog-and-cat-justicon-flat-justicon-5.png">
+                </div>
+                <form method="POST" th:action="@{/registro/login}">
+                    <div class="row">
+                        <div class="col-md-12 mb-1 pb-2">
+                            <div class="form-outline">
+                                <label class="form-label" for="email">Email</label>
+                                <input class="form-control form-control-lg input" th:id="email"
+                                       name="email"
+                                       type="email"
+                                />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 mb-1 pb-2">
+                            <div class="form-outline">
+                                <label class="form-label" for="contrasena">Contraseña</label>
+                                <div class="buttonIn">
+                                    <input class="form-control form-control-lg contrasena" data-status="pass"
+                                           th:id="contrasena"
+                                           name="contrasena"
+                                           type="password"
+                                    />
+                                    <button class="mostrar" type="button"><i class="bi bi-eye ojo"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 alert-danger danger">
+                            <p>Usuario/a o contraseña incorrectos.</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 mb-1 pb-2">
+                            <div class="mt-4 pt-2">
+                                <input class="btn btn-primary btn-lg boton" th:id="vamos"
+                                       style="text-decoration: none" type="submit"
+                                       value="Vamos!"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <p class="mt-3"><small>¿Aún no tienes cuenta? ¿Cómo te quieres registrar? Como <a
+                                th:href="@{/registro/protectora}">Protectora</a> o como <a
+                                th:href="@{/registro/adoptante}">Usuario</a></small></p>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="/js/index.js" th:src="@{/js/navbar.js}"></script>
+<script src="/js/verClave.js" th:src="@{/js/verClave.js}"></script>
+<script crossorigin="anonymous"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

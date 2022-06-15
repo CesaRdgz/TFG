@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="es" xmlns="http://www.w3.org/1999/html" xmlns:th="http://www.thymeleaf.org/">
+<head>
+  <meta charset="UTF-8">
+  <title>Shelter</title>
+  <link href="https://img.icons8.com/external-justicon-flat-justicon/64/000000/external-dog-dog-and-cat-justicon-flat-justicon-10.png"
+        rel="icon">
+  <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" rel="stylesheet">
+  <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css"
+        rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="/css/index.css" rel="stylesheet"/>
+  <link href="/css/darDeAlta.css" rel="stylesheet"/>
+</head>
+<body id="body-pd">
+<div class="container-fluid">
+  <div class="row">
+
+
+    <!----------------------------------------------Navbar--------------------------------------------------------->
+    <header class="header" id="header">
+      <div class="header_toggle"><i class='bx bx-menu' id="header-toggle"></i></div>
+      <div class="col-lg-8 col-md-7 col-sm-5"></div>
+      <div class="col-lg-4 col-md-5 col-sm-7"></div>
+    </header>
+    <div class="l-navbar" id="nav-bar">
+      <nav class="nav">
+        <div><a class="nav_logo" th:href="@{/indexProtectora}"> <img
+                id="logo"
+                src="https://img.icons8.com/external-justicon-flat-justicon/64/000000/external-dog-dog-and-cat-justicon-flat-justicon-10.png"/>
+          <span class="nav_logo-name">Cats&Dogs</span> </a>
+          <div class="nav_list">
+            <a class="nav_link" href="#">
+              <i class='bx bx-home-alt-2 nav_icon'></i>
+              <span class="nav_name">Inicio</span>
+            </a>
+            <a class="nav_link" href="#">
+              <i class='bx bx-message-square-detail nav_icon'></i>
+              <span class="nav_name">Mensajes</span>
+            </a>
+            <a class="nav_link" th:href="@{/publicacion/subirPublicacion}">
+              <i class='bi bi-camera-fill nav_icon'></i>
+              <span class="nav_name">Subir Publicacion</span>
+            </a>
+            <a class="nav_link" th:href="@{/darDeAlta/}">
+              <i class='bi bi-plus-circle-fill nav_icon'></i>
+              <span class="nav_name">Dar de alta</span>
+            </a>
+            <div id="div_ul-dropdown">
+              <a class="nav_link" href="#">
+                <i class="bi bi-gear nav_icon" id="engranaje_ul-dropdown"></i>
+                <span class="nav_name" id="ajustes_ul-dropdown">Ajustes <i
+                        class="bi bi-caret-down flechaAbajo"></i> </span>
+              </a>
+
+              <ul data-status="show" id="ul-dropdown">
+                <li><small><a class="aa" th:href="@{/perfil/datos}"> <i
+                        class="bi bi-person-fill"> &nbsp; </i> Perfil</a></small></li>
+                <li><small><a class="aa" th:href="@{/registro/ccontrasena}"> <i
+                        class="bi bi-lock-fill"> &nbsp; </i> Cambiar clave</a></small></li>
+                <li><small><a class="aa" th:href="@{/perfil/suscripcion}"> <i
+                        class="bi bi-currency-dollar">&nbsp;</i> Suscripción</a></small></li>
+              </ul>
+            </div>
+
+            <div id="div_media">
+              <a class="nav_link" href="#">
+                <i class="bi bi-gear nav_icon" id="engranaje_media"></i>
+                <span class="nav_name" id="ajustes_media">Ajustes <i
+                        class="bi bi-caret-down flechaAbajo"></i> </span>
+
+              </a>
+              <div class="media" data-status="show" id="mediaProtectora">
+                <a class="bb mt-3" th:href="@{/perfil/datos}">
+                  <i class="bi bi-person-fill"> &nbsp; </i>
+                </a>
+                <a class="bb mt-3" th:href="@{/registro/ccontrasena}">
+                  <i class="bi bi-lock-fill"></i>
+                </a>
+                <a class="bb mt-3" th:href="@{/perfil/suscripcion}">
+                  <i class="bi bi-currency-dollar"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <span>
+                        <a class="nav_link" th:href="@{/cerrarSesion}">
+                            <i class='bx bx-log-out nav_icon'></i>
+                            <span class="nav_name">Cerrar Sesion</span>
+                        </a>
+                    </span>
+      </nav>
+    </div>
+    <!-------------------------------------------Navbar ends------------------------------------------------------->
+
+    <!-------------------------------------------Form-------------------------------------------------------------->
+      <div class="col-lg-9 col-md-12 col-sm-12" id="formGato">
+        <form enctype="multipart/form-data" method="POST" object="gato" th:action="@{/darDeAlta/editar/{id}(id=${session.gato.id})}">
+          <div class="row">
+            <div class="col-6">
+              <h3 class="datos">Datos</h3>
+            </div>
+            <div class="col-6">
+              <div class="me-4">
+                <img class="logoli1"
+                     src="https://img.icons8.com/external-justicon-flat-justicon/64/000000/external-dog-dog-and-cat-justicon-flat-justicon.png">
+              </div>
+            </div>
+          </div>
+          <hr>
+          <div class="row mt-2">
+            <div class="col-6">
+              <label class="form-label" for="tipoGato">Tipo</label>
+              <select class="form-control form-control-lg" field="*{tipo}" id="tipoGato" name="tipo">
+                <option selected value="Gato">Gato</option>
+              </select>
+            </div>
+            <div class="col-6">
+              <label class="form-label" for="nombre">Nombre</label>
+              <input required class="form-control form-control-lg" field="*{nombre}" id="nombre" name="nombre"
+                     th:value="${session.gato.nombre}" type="text">
+            </div>
+          </div>
+          <div class="row mt-2">
+            <div class="col-6">
+              <label class="form-label" for="genero">Genero</label>
+              <select class="form-control form-control-lg" field="*{genero}" id="genero" name="genero"
+                      type="text">
+                <th:block th:if="${session.gato.genero == 'Masculino'}">
+                  <option value="Masculino" selected>Masculino</option>
+                  <option value="Femenino">Femenino</option>
+                </th:block>
+                <th:block th:if="${session.gato.genero == 'Femenino'}">
+                  <option value="Masculino">Masculino</option>
+                  <option value="Femenino" selected>Femenino</option>
+                </th:block>
+              </select>
+            </div>
+            <div class="col-6">
+              <label class="form-label" for="edad">Edad</label>
+              <input required class="form-control form-control-lg" field="*{edad}" id="edad" name="edad"
+                     th:value="${session.gato.edad}" type="text">
+            </div>
+          </div>
+          <div class="row mt-2">
+            <div class="col-6">
+              <label class="form-label" for="chip">Chip</label>
+              <select class="form-control form-control-lg" field="*{chip}" id="chip" name="chip"
+                      type="text">
+                <th:block th:if="${session.gato.chip == 'Si'}">
+                  <option value="Si" selected>Si</option>
+                  <option value="No">No</option>
+                </th:block>
+                <th:block th:if="${session.gato.chip == 'No'}">
+                  <option value="Si">Si</option>
+                  <option value="No" selected>No</option>
+                </th:block>
+              </select>
+            </div>
+            <div class="col-6">
+              <label class="form-label" for="castrado">Castrado</label>
+              <select class="form-control form-control-lg" field="*{castrado}" id="castrado"
+                      name="castrado"
+                      type="text">
+                <th:block th:if="${session.gato.castrado == 'Si'}">
+                  <option value="Si" selected>Si</option>
+                  <option value="No">No</option>
+                </th:block>
+                <th:block th:if="${session.gato.castrado == 'No'}">
+                  <option value="Si">Si</option>
+                  <option value="No" selected>No</option>
+                </th:block>
+              </select>
+            </div>
+          </div>
+          <div class="row mt-2">
+            <div class="col-6">
+              <label class="form-label" for="chip">Raza</label>
+              <input required class="form-control form-control-lg" field="*{raza}" id="razaGato" name="raza"
+                     th:value="${session.gato.raza}" type="text">
+            </div>
+            <div class="col-6">
+              <label class="form-label" for="file">Foto</label>
+              <input class="form-control form-control-lg" id="file" name="file" type="file">
+            </div>
+          </div>
+
+
+          <div class="row">
+            <div class="col-6">
+              <h3 class="datos">Vacunas <h5><small>(marcar si el animal las tiene)</small></h5></h3>
+            </div>
+            <div class="col-6">
+              <div class="me-4">
+                <img class="logoli2"
+                     src="https://img.icons8.com/external-justicon-flat-justicon/64/000000/external-cat-dog-and-cat-justicon-flat-justicon-2.png">
+              </div>
+            </div>
+            <hr>
+          </div>
+
+          <div id="gato">
+            <div class="row">
+              <div class="col-4 form-check form-switch">
+                <th:block th:if="${session.gato.vacuna_GripeFelina == true}">
+                  <input  class="form-check-input check" field="*{vacuna_GripeFelina}"
+                         name="tipoVacuna"
+                         role="switch" type="checkbox" value="Gripe Felina" checked>
+                  <label class="form-check-label" >Gripe Felina</label>
+                </th:block>
+                <th:block th:if="${session.gato.vacuna_GripeFelina == false}">
+                  <input class="form-check-input check" field="*{vacuna_GripeFelina}"
+                         name="tipoVacuna"
+                         role="switch" type="checkbox" value="Gripe Felina">
+                  <label class="form-check-label" >Gripe Felina</label>
+                </th:block>
+
+              </div>
+              <div class="col-4 form-check form-switch">
+                <th:block th:if="${session.gato.vacuna_Panleucopenia == true}">
+                  <input  class="form-check-input check" field="*{vacuna_Panleucopenia}"
+                         name="tipoVacuna"
+                         role="switch" type="checkbox" value="Panleucopenia" checked>
+                  <label class="form-check-label" f>Panleucopenia</label>
+                </th:block>
+                <th:block th:if="${session.gato.vacuna_Panleucopenia == false}">
+                  <input  class="form-check-input check" field="*{vacuna_Panleucopenia}"
+                         name="tipoVacuna"
+                         role="switch" type="checkbox" value="Panleucopenia">
+                  <label class="form-check-label" f>Panleucopenia</label>
+                </th:block>
+              </div>
+              <div class="col-4 form-check form-switch">
+                <th:block th:if="${session.gato.vacuna_LeucemiaFelina == true}">
+                  <input  class="form-check-input check" field="*{vacuna_LeucemiaFelina}"
+                         name="tipoVacuna"
+                         role="switch" type="checkbox" value="Leucemia Felina" checked>
+                  <label class="form-check-label" >Leucemia Felina</label>
+                </th:block>
+                <th:block th:if="${session.gato.vacuna_LeucemiaFelina == false}">
+                  <input  class="form-check-input check" field="*{vacuna_LeucemiaFelina}"
+                         name="tipoVacuna"
+                         role="switch" type="checkbox" value="Leucemia Felina">
+                  <label class="form-check-label" >Leucemia Felina</label>
+                </th:block>
+              </div>
+            </div>
+          </div>
+          <br>
+          <input class="btn botonEditar" type="submit" value="Editar">
+          <br>
+          <br>
+        </form>
+      </div>
+    <!-------------------------------------------Form End---------------------------------------------------------->
+
+    <!-------------------------------------------Dar de Alta------------------------------------------------------->
+
+    <div class="col-lg-3 col-md-12 col-sm-12">
+      <a th:href="@{/darDeAlta/}">
+        <div class="col-lg-3 col-md-12 col-sm-12" id="lista">
+          <i class="bi bi-list iconoSubir"></i>
+        </div>
+      </a>
+    </div>
+
+    <!-------------------------------------------Dar de Ends------------------------------------------------------->
+
+
+  </div>
+</div>
+<script crossorigin="anonymous" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="/js/index.js" th:src="@{/js/navbar.js}"></script>
+</body>
+</html>

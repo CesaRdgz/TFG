@@ -18,7 +18,10 @@ public class Usuario {
     @Column(name = "id", nullable = false)
     private Long id;
 
-    private String NombreUsuario;
-    private String Contrasena;
+    @Column(name = "email", nullable = false, unique = true)
+    private String email;
+
+    @Column(name = "contrasena", nullable = false)
+    private String contrasena;
 
 }

@@ -1,0 +1,34 @@
+version: '3.9'
+
+services:
+  db:
+    image: mysql:8.0.17
+    container_name: db
+    environment:
+      MYSQL_ROOT_PASSWORD: admin
+      MYSQL_DATABASE: tfg
+    ports:
+      - "3306:3306"
+    networks:
+      shelter_red:
+        ipv4_address: 172.23.0.2
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+      timeout: 5s
+      retries: 5
+
+  tomcat-shelter:
+    image: dockerapp
+    container_name: app
+    ports:
+      - "9000:9000"
+    networks:
+      shelter_red:
+        ipv4_address: 172.23.0.3
+
+networks:
+  shelter_red:
+    ipam:
+      driver: default
+      config:
+        - subnet: "172.23.0.0/16"

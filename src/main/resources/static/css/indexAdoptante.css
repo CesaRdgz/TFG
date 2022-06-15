@@ -1,0 +1,301 @@
+.ui-menu{
+    list-style:none;
+    padding-left: 15px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    cursor: default;
+    position: absolute;
+    top:15px !important;
+    width: 282px !important;
+    background: white;
+    box-shadow: 1px 12px 33px rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+}
+.ui-helper-hidden-accessible {
+    display: none;
+}
+
+.info{
+    margin-top: 40px;
+    background-color: #F7F6FB;
+}
+
+.informacion{
+    color: #34C75D;
+    margin-left: 15px;
+    margin-top: 5px;
+}
+
+.foto_perfil-publicacion{
+    width: 35px;
+    height: 35px;
+    border-radius: 50px;
+    object-fit: cover;
+    object-position: center center;
+    position:relative;
+    object-fit: cover;
+    object-position: center center;
+}
+
+.foto_perfil-publicacion-posicion{
+    width: 35px;
+    height: 35px;
+    border-radius: 50px;
+    object-fit: cover;
+    object-position: center center;
+    position:absolute;
+    top: 15px;
+    right: 25px;
+    object-fit: cover;
+    object-position: center center;
+}
+
+.ul{
+    list-style: none;
+    margin-left: 30px;
+    margin-top: 5px;
+}
+
+.li{
+    cursor: default;
+    margin-top: 10px;
+}
+
+.a{
+    text-decoration: none;
+    color: black;
+}
+
+.bi-heartt{
+    position:absolute;
+    right: 25px;
+    bottom: 12px;
+    color: white;
+    text-shadow: black 0.1em 0.1em 0.2em;
+
+}
+
+.bi-heartt:hover{
+    color: red;
+    transition: 200ms ease-in-out;
+}
+
+.foto_publicacion{
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    object-fit: cover;
+    object-position: center center;
+}
+
+.nombre{
+    margin-left: 10px;
+    margin-top:210px;
+}
+
+.row_foreach{
+    margin-top:-120px;
+    margin-left: 78px;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+body{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    font-family: 'Roboto', sans-serif;
+}
+
+h2{
+    margin:0px;
+    text-transform: uppercase;
+}
+
+h6{
+    margin:0px;
+    color:#777;
+}
+
+.wrapper{
+    text-align:center;
+    margin:50px auto;
+    margin-top: -7px;
+}
+
+.tabs{
+    margin-top:50px;
+    font-size:15px;
+    padding:0px;
+    list-style:none;
+    background:#fff;
+    box-shadow:0px 5px 20px rgba(0,0,0,0.1);
+    display:inline-block;
+    border-radius:50px;
+    position:relative;
+}
+
+.tabs a{
+    text-decoration:none;
+    color: #777;
+    text-transform:uppercase;
+    padding:10px 20px;
+    display:inline-block;
+    position:relative;
+    z-index:1;
+    transition-duration:0.6s;
+}
+
+.tabs a.active{
+    color:#fff;
+
+}
+
+.tabs a i{
+    margin-right:5px;
+}
+
+.tabs .selector{
+    height:100%;
+    display:inline-block;
+    position:absolute;
+    left:0px;
+    top:0px;
+    z-index:1;
+    border-radius:50px;
+    transition-duration:0.6s;
+    transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    background: #34C75D;
+    background: -moz-linear-gradient(45deg, #34C76D 0%, #34C75D 100%);
+    background: -webkit-linear-gradient(45deg, #34C76D 0%,#34C75D 100%);
+    background: linear-gradient(45deg, #34C76D 0%,#34C75D 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#05abe0', endColorstr='#8200f4',GradientType=1 );
+}
+
+.row1{
+    margin-top: 0px !important;
+}
+
+.a:hover{
+    color:#777777;
+}
+
+.div.selector{
+    display:none;
+}
+
+a.active::before{
+    display:none
+}
+
+a.active:hover{
+    color: white !important;
+}
+
+.texto{
+    cursor: default;
+}
+
+.carta{
+    margin-top: 100px;
+    margin-bottom: -50px;
+}
+
+.foto_publicacion-col-12{
+    width: 500px;
+    height: 500px;
+    object-fit: cover;
+    object-position: center center;
+}
+
+.card-publicacion-col12{
+    width: 500px;
+    height: 500px;
+    margin-bottom: -50px;
+}
+
+.hr{
+    border-top: 1px solid white;
+}
+
+.texto-publicacion{
+    color: white;
+    text-shadow: black 0.1em 0.1em 0.2em;
+}
+
+.nombre-col12{
+    margin-top: 15px;
+}
+
+.cardinfo{
+    position: fixed;
+    width: 27%;
+}
+
+.card-publicacion-col11{
+    margin-bottom: 20px !important;
+}
+
+.modalDialog {
+    position: fixed;
+    font-family: Arial, Helvetica, sans-serif;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: transparent;
+    backdrop-filter: blur(3px);
+    z-index: 99999;
+    opacity:0;
+    -webkit-transition: opacity 400ms ease-in;
+    -moz-transition: opacity 400ms ease-in;
+    transition: opacity 400ms ease-in;
+    pointer-events: none;
+
+}
+
+.modalDialog:target {
+    opacity:1;
+    pointer-events: auto;
+}
+.modalDialog > div {
+    width: 400px;
+    position: relative;
+    margin: 10% auto;
+    padding: 5px 20px 13px 20px;
+    border-radius: 10px;
+    background-color: #F8D7DA;
+    -webkit-transition: opacity 400ms ease-in;
+    -moz-transition: opacity 400ms ease-in;
+    transition: opacity 400ms ease-in;
+}
+
+.close {
+    background-color: #F8D7DA;
+    color: #842E45;
+    line-height: 25px;
+    position: absolute;
+    right: -12px;
+    text-align: center;
+    top: -10px;
+    width: 24px;
+    text-decoration: none;
+    font-weight: bold;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    border-radius: 12px;
+    -moz-box-shadow: 1px 1px 3px #000;
+    -webkit-box-shadow: 1px 1px 3px #000;
+    box-shadow: 1px 1px 3px #000;
+}
+
+.containerModal{
+    position:absolute;
+    top:25%;
+}
+
+

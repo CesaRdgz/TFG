@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es" xmlns="http://www.w3.org/1999/html" xmlns:th="http://www.thymeleaf.org/">
+<head>
+
+    <meta charset="UTF-8">
+    <title>Shelter</title>
+    <link href="https://img.icons8.com/external-justicon-flat-justicon/64/000000/external-dog-dog-and-cat-justicon-flat-justicon-10.png"
+          rel="icon">
+    <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" rel="stylesheet">
+    <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css"
+          rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="/css/index.css" rel="stylesheet"/>
+    <link href="/css/subirPublicacion.css" rel="stylesheet"/>
+</head>
+<body id="body-pd">
+<div class="container-fluid">
+    <div class="row">
+        <!----------------------------------------------Navbar--------------------------------------------------------->
+        <header class="header" id="header">
+            <div class="header_toggle"><i class='bx bx-menu' id="header-toggle"></i></div>
+            <div class="col-lg-8 col-md-7 col-sm-5"></div>
+            <div class="col-lg-4 col-md-5 col-sm-7">
+            </div>
+        </header>
+        <div class="l-navbar" id="nav-bar">
+            <nav class="nav">
+                <div><a class="nav_logo" href="#"> <img
+                        id="logo"
+                        src="https://img.icons8.com/external-justicon-flat-justicon/64/000000/external-dog-dog-and-cat-justicon-flat-justicon-10.png"/>
+                    <span class="nav_logo-name">Cats&Dogs</span> </a>
+                    <div class="nav_list">
+                        <a class="nav_link" th:href="@{/indexProtectora}">
+                            <i class='bx bx-home-alt-2 nav_icon'></i>
+                            <span class="nav_name">Inicio</span>
+                        </a>
+                        <a class="nav_link" th:href="@{/publicacion/subirPublicacion}">
+                            <i class='bi bi-camera-fill nav_icon'></i>
+                            <span class="nav_name">Subir Publicacion</span>
+                        </a>
+                        <a class="nav_link" th:href="@{/darDeAlta/}">
+                            <i class='bi bi-plus-circle-fill nav_icon'></i>
+                            <span class="nav_name">Dar de alta</span>
+                        </a>
+                        <div id="div_ul-dropdown">
+                            <a class="nav_link" href="#">
+                                <i class="bi bi-gear nav_icon" id="engranaje_ul-dropdown"></i>
+                                <span class="nav_name" id="ajustes_ul-dropdown">Ajustes <i
+                                        class="bi bi-caret-down flechaAbajo"></i> </span>
+                            </a>
+
+                            <ul data-status="show" id="ul-dropdown">
+                                <li><small><a class="aa" th:href="@{/perfil/datos}"> <i
+                                        class="bi bi-person-fill"> &nbsp; </i> Perfil</a></small></li>
+                                <li><small><a class="aa" th:href="@{/registro/ccontrasena}"> <i
+                                        class="bi bi-lock-fill"> &nbsp; </i> Cambiar clave</a></small></li>
+                            </ul>
+                        </div>
+
+                        <div id="div_media">
+                            <a class="nav_link" href="#">
+                                <i class="bi bi-gear nav_icon" id="engranaje_media"></i>
+                                <span class="nav_name" id="ajustes_media">Ajustes <i
+                                        class="bi bi-caret-down flechaAbajo"></i> </span>
+
+                            </a>
+                            <div class="media" data-status="show" id="mediaProtectora">
+                                <a class="bb mt-3" th:href="@{/perfil/datos}">
+                                    <i class="bi bi-person-fill"> &nbsp; </i>
+                                </a>
+                                <a class="bb mt-3" th:href="@{/registro/ccontrasena}">
+                                    <i class="bi bi-lock-fill"></i>
+                                </a>
+                                <a class="bb mt-3" th:href="@{/perfil/suscripcion}">
+                                    <i class="bi bi-currency-dollar"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <span>
+                        <a class="nav_link" th:href="@{/cerrarSesion}">
+                            <i class='bx bx-log-out nav_icon'></i>
+                            <span class="nav_name">Cerrar Sesion</span>
+                        </a>
+                    </span>
+            </nav>
+        </div>
+        <!-------------------------------------------Navbar ends------------------------------------------------------->
+        <div class="col-12 mt-3">
+            <div class="container-fluid">
+                <form method="post" th:action="@{/publicacion/buscarAnimal}">
+                    <div class="row">
+                        <div class="col-10"><input class="form-control searchInput" id="searchInput"
+                                                   name="searchInput"/></div>
+                        <div class="col-2"><input class="form-control botonBuscar" type="submit" value="Buscar"/></div>
+                    </div>
+                    <div class="desplegable"></div>
+                </form>
+                <th:block th:if="${session.animal == null}">
+                    <div class="row">
+                        <div class="col-5">
+                            <div class="container-fluid" id="caja-textoTitulo">
+                                <h1 id="textoTitulo">Selecciona un animal</h1>
+                            </div>
+                        </div>
+                        <div class="col-7 mt-4">
+                            <h3>Datos</h3>
+                            <br>
+                            <h5>Nombre: </h5>
+                            <br>
+                            <h5>Edad: </h5>
+                            <br>
+                            <h5>Raza: </h5>
+                            <hr>
+                            <h3>Cuentanos su historia:</h3>
+                            <textarea class="text-area" disabled></textarea>
+                        </div>
+                    </div>
+                </th:block>
+                <th:block th:if="${session.animal != null}">
+                    <form th:action="@{/publicacion/publicar}" method="POST" enctype="multipart/form-data">
+                        <div class="row">
+                            <div class="col-5 columna">
+                                <th:block th:if="${session.animal.tipo == 'Perro'}">
+                                    <img class="image foto_perfil foto_forEach foto_forEachPerro justify-content-sm-center align-content-sm-center align-items-sm-center"
+                                         th:alt="${session.animal.foto}"
+                                         th:src="@{'/uploads/perros/' + ${session.animal.foto}}">
+                                </th:block>
+
+                                <th:block th:if="${session.animal.tipo == 'Gato'}">
+                                    <img class="image foto_perfil foto_forEach foto_forEachGato justify-content-sm-center align-content-sm-center align-items-sm-center"
+                                         th:alt="${session.animal.foto}"
+                                         th:src="@{'/uploads/gatos/' + ${session.animal.foto}}">
+                                </th:block>
+                                <input onchange="readURL(this)" type="file" id="file" name="file" hidden>
+                                <div class="middle">
+                                    <div class="text">Cambiar la foto para la publicacion</div>
+                                </div>
+                            </div>
+                            <div class="col-7 mt-4">
+                                <h3>Datos</h3>
+                                <br>
+                                <h5>Nombre: <small><span th:text="${session.animal.nombre}"></span></small></h5>
+                                <br>
+                                <h5>Edad: <small><span th:text="${session.animal.edad}"></span></small></h5>
+                                <br>
+                                <h5>Raza: <small><span th:text="${session.animal.raza}"></span></small></h5>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-10">
+                                        <h3>Cuentanos su historia:</h3>
+                                        <textarea class="text-area" id="historia" name="historia"></textarea>
+                                    </div>
+                                    <div class="col-2">
+                                        <input class="btn btn-subir" type="submit" value="Subir">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </th:block>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script crossorigin="anonymous"
+        integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30="
+        src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script crossorigin="anonymous" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/js/navbar.js" th:src="@{/js/navbar.js}"></script>
+<script src="/js/perfil.js" th:src="@{/js/subirPublicacion.js}"></script>
+<script src="/js/cambiarFoto.js" th:src="@{/js/cambiarFoto.js}"></script>
+</body>
+</html>

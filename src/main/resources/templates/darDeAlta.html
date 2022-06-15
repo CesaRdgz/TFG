@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="es" xmlns="http://www.w3.org/1999/html" xmlns:th="http://www.thymeleaf.org/">
+<head>
+
+    <script crossorigin="anonymous" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
+
+    <meta charset="UTF-8">
+    <title>Shelter</title>
+    <link href="https://img.icons8.com/external-justicon-flat-justicon/64/000000/external-dog-dog-and-cat-justicon-flat-justicon-10.png"
+          rel="icon">
+    <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" rel="stylesheet">
+    <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css"
+          rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="/css/index.css" rel="stylesheet"/>
+    <link href="/css/darDeAlta.css" rel="stylesheet"/>
+</head>
+<body id="body-pd">
+<div class="container-fluid">
+    <div class="row">
+
+
+        <!----------------------------------------------Navbar--------------------------------------------------------->
+        <header class="header" id="header">
+            <div class="header_toggle"><i class='bx bx-menu' id="header-toggle"></i></div>
+            <div class="col-lg-8 col-md-7 col-sm-5"></div>
+            <div class="col-lg-4 col-md-5 col-sm-7">
+            </div>
+        </header>
+        <div class="l-navbar" id="nav-bar">
+            <nav class="nav">
+                <div><a class="nav_logo" href="#"> <img
+                        id="logo"
+                        src="https://img.icons8.com/external-justicon-flat-justicon/64/000000/external-dog-dog-and-cat-justicon-flat-justicon-10.png"/>
+                    <span class="nav_logo-name">Cats&Dogs</span> </a>
+                    <div class="nav_list">
+                        <a class="nav_link" th:href="@{/indexProtectora}">
+                            <i class='bx bx-home-alt-2 nav_icon'></i>
+                            <span class="nav_name">Inicio</span>
+                        </a>
+                        <a class="nav_link" th:href="@{/publicacion/subirPublicacion}">
+                            <i class='bi bi-camera-fill nav_icon'></i>
+                            <span class="nav_name">Subir Publicacion</span>
+                        </a>
+                        <a class="nav_link" th:href="@{/darDeAlta/}">
+                            <i class='bi bi-plus-circle-fill nav_icon'></i>
+                            <span class="nav_name">Dar de alta</span>
+                        </a>
+                        <div id="div_ul-dropdown">
+                            <a class="nav_link" href="#">
+                                <i class="bi bi-gear nav_icon" id="engranaje_ul-dropdown"></i>
+                                <span class="nav_name" id="ajustes_ul-dropdown">Ajustes <i
+                                        class="bi bi-caret-down flechaAbajo"></i> </span>
+                            </a>
+
+                            <ul data-status="show" id="ul-dropdown">
+                                <li><small><a class="aa" th:href="@{/perfil/datos}"> <i
+                                        class="bi bi-person-fill"> &nbsp; </i> Perfil</a></small></li>
+                                <li><small><a class="aa" th:href="@{/registro/ccontrasena}"> <i
+                                        class="bi bi-lock-fill"> &nbsp; </i> Cambiar clave</a></small></li>
+                                <li><small><a class="aa" th:href="@{/perfil/suscripcion}"> <i
+                                        class="bi bi-currency-dollar">&nbsp;</i> Suscripción</a></small></li>
+                            </ul>
+                        </div>
+
+                        <div id="div_media">
+                            <a class="nav_link" href="#">
+                                <i class="bi bi-gear nav_icon" id="engranaje_media"></i>
+                                <span class="nav_name" id="ajustes_media">Ajustes <i
+                                        class="bi bi-caret-down flechaAbajo"></i> </span>
+
+                            </a>
+                            <div class="media" data-status="show" id="mediaProtectora">
+                                <a class="bb mt-3" th:href="@{/perfil/datos}">
+                                    <i class="bi bi-person-fill"> &nbsp; </i>
+                                </a>
+                                <a class="bb mt-3" th:href="@{/registro/ccontrasena}">
+                                    <i class="bi bi-lock-fill"></i>
+                                </a>
+                                <a class="bb mt-3" th:href="@{/perfil/suscripcion}">
+                                    <i class="bi bi-currency-dollar"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <span>
+                        <a class="nav_link" th:href="@{/cerrarSesion}">
+                            <i class='bx bx-log-out nav_icon'></i>
+                            <span class="nav_name">Cerrar Sesion</span>
+                        </a>
+                    </span>
+            </nav>
+        </div>
+        <!-------------------------------------------Navbar ends------------------------------------------------------->
+
+
+        <!-------------------------------------------Listado----------------------------------------------------------->
+        <div class="col-lg-9 col-md-12 col-sm-12" id="listado-registroAnimal">
+            <span th:if="${session.animales.isEmpty()}">
+                <div class="container-fluid" id="caja-textoTitulo">
+                    <h1 id="textoTitulo">No hay animales registrados</h1>
+                </div>
+            </span>
+
+            <span th:if="${!session.animales.isEmpty()}">
+                <div class="container-fluid mt-3">
+
+                        <form method="POST" th:action="@{/buscar/animal}">
+                        <div class="row">
+                                <div class="col-2">
+                                    <h5>Tipo:</h5>
+                                    <select class="form-control form-control-lg" id="selectBusqueda"
+                                            name="selectBusqueda">
+                                        <option value="Perro">Perro</option>
+                                        <option value="Gato">Gato</option>
+                                    </select>
+                                </div>
+                                <div class="col-4">
+                                    <h5>Nombre:</h5>
+                                    <input class="form-control form-control-lg" id="nombreBusqueda"
+                                           name="nombreBusqueda" type="text">
+                                </div>
+                                <div class="col-2">
+                                    <h5>Edad:</h5>
+                                    <input class="form-control form-control-lg" id="edadBusqueda" name="edadBusqueda"
+                                           type="text">
+                                </div>
+                                <div class="col-2" id="lupaBusqueda">
+                                    <input class="form-control form-control-lg ms-2 lupa" type="submit" value="Buscar">
+                                </div>
+                                <div class="col-2">
+                                    <a th:href="@{/darDeAlta/}"><button type="button" class="botonEditar1 ms-2"><i
+                                            class="bi bi-arrow-clockwise"></i></button></a>
+                                </div>
+                            </div>
+                        </form>
+                        <hr>
+
+                        <div class="row">
+                            <div class="col-4" th:each="animals : ${session.animales}"
+                                 th:if="${animals.tipo} == 'Perro'">
+                                <div class="card card_forEach">
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <div class="col-1 col_forEach">
+                                                    <h3 class="nombre_forEach" th:text="${animals.nombre}"></h3>
+
+                                                </div>
+                                            <div class="col-6">
+                                                    <img class=" foto_forEach justify-content-sm-center align-content-sm-center align-items-sm-center"
+                                                         th:alt="${animals.foto}"
+                                                         th:src="@{'/uploads/perros/' + ${animals.foto}}">
+                                            </div>
+                                            <div class="col-5 container_col7">
+
+                                                <span th:if="${animals.adoptado == false}">
+                                                    <a th:href="@{/darDeAlta/editar/{id}(id=${animals.id})}">
+                                                            <div class="row row_forEach">
+                                                                <div class="col-12 editar_forEach">
+                                                                    <i class="bi bi-pencil-square iconoBoton_forEach"></i>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+
+                                                        <a th:href="@{/adopcion/{id}(id=${animals.id})}">
+                                                            <div class="row row_forEach">
+                                                                <div class="col-12 check_foreach check-gato">
+                                                                    <i class="bi bi-check-circle"></i>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                        <a th:href="@{/darDeBaja/animal/{id}(id=${animals.id})}">
+                                                            <div class="row row_forEach">
+                                                                <div class="col-12 basura_forEach">
+                                                                    <i class="bi bi-trash iconoBoton_forEach"></i>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                </span>
+                                                <span th:if="${animals.adoptado == true}">
+                                                    <a th:href="@{/darDeAlta/editar/{id}(id=${animals.id})}">
+                                                        <div class="row row_forEach">
+                                                            <div class="col-12 editar_forEachtrue">
+                                                                <i class="bi bi-pencil-square iconoBoton_forEach"></i>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                    <a th:href="@{/darDeBaja/animal/{id}(id=${animals.id})}">
+                                                        <div class="row row_forEach">
+                                                            <div class="col-12 basura_forEachtrue">
+                                                                <i class="bi bi-trash iconoBoton_forEach"></i>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-4" th:each="animals : ${session.animales}"
+                                 th:if="${animals.tipo} == 'Gato'">
+                                    <div class="card card_forEach">
+                                        <div class="container-fluid">
+                                            <div class="row">
+                                                <div class="col-1 col_forEach">
+                                                    <h3 class="nombre_forEach" th:text="${animals.nombre}"></h3>
+                                                </div>
+                                                <div class="col-6">
+                                                    <img class="foto_forEach justify-content-sm-center align-content-sm-center align-items-sm-center"
+                                                         th:alt="${animals.foto}"
+                                                         th:src="@{'/uploads/gatos/' + ${animals.foto}}">
+                                                </div>
+                                                <div class="col-5 container_col7">
+                                                    <span th:if="${animals.adoptado == false}">
+                                                        <a th:href="@{/darDeAlta/editar/{id}(id=${animals.id})}">
+                                                            <div class="row row_forEach">
+                                                                <div class="col-12 editar_forEach">
+                                                                    <i class="bi bi-pencil-square iconoBoton_forEach"></i>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+
+                                                        <a th:href="@{/adopcion/{id}(id=${animals.id})}">
+                                                            <div class="row row_forEach">
+                                                                <div class="col-12 check_foreach check-gato">
+                                                                    <i class="bi bi-check-circle"></i>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                        <a th:href="@{/darDeBaja/animal/{id}(id=${animals.id})}">
+                                                            <div class="row row_forEach">
+                                                                <div class="col-12 basura_forEach">
+                                                                    <i class="bi bi-trash iconoBoton_forEach"></i>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                    </span>
+                                                    <span th:if="${animals.adoptado == true}">
+                                                        <a th:href="@{/darDeBaja/animal/{id}(id=${animals.id})}">
+                                                            <div class="row row_forEach">
+                                                                <div class="col-12 basura_forEach">
+                                                                    <i class="bi bi-trash iconoBoton_forEach"></i>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                        <a th:href="@{/darDeAlta/editar/{id}(id=${animals.id})}">
+                                                            <div class="row row_forEach">
+                                                                <div class="col-12 editar_forEach">
+                                                                    <i class="bi bi-pencil-square iconoBoton_forEach"></i>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+                </div>
+            </span>
+        </div>
+
+
+        <!-------------------------------------------Listado Ends------------------------------------------------------>
+
+
+        <!-------------------------------------------Form Perro-------------------------------------------------------->
+        <div class="col-lg-9 col-md-12 col-sm-12" id="formPerro">
+            <form enctype="multipart/form-data" method="POST" object="perro" th:action="@{/darDeAlta/perro}">
+                <div class="row">
+                    <div class="col-6">
+                        <h3 class="datos">Datos</h3>
+                    </div>
+                    <div class="col-6">
+                        <div class="me-4">
+                            <img class="logoli1"
+                                 src="https://img.icons8.com/external-justicon-flat-justicon/64/000000/external-dog-dog-and-cat-justicon-flat-justicon.png">
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="row mt-2">
+                    <div class="col-6">
+                        <label class="form-label" for="tipoPerro">Tipo</label>
+                        <select class="form-control form-control-lg" field="*{tipo}" id="tipoPerro" name="tipo">
+                            <option selected value="Perro">Perro</option>
+                            <option value="Gato">Gato</option>
+                        </select>
+                    </div>
+                    <div class="col-6">
+                        <label class="form-label" for="nombrePerro">Nombre</label>
+                        <input class="form-control form-control-lg" field="*{nombre}" id="nombrePerro" name="nombre"
+                               required
+                               type="text">
+                    </div>
+
+                </div>
+                <div class="row mt-2">
+                    <div class="col-6">
+                        <label class="form-label" for="generoPerro">Genero</label>
+                        <select class="form-control form-control-lg" field="*{genero}" id="generoPerro" name="genero"
+                                type="text">
+                            <option value="Masculino">Masculino</option>
+                            <option value="Femenino">Femenino</option>
+                        </select>
+                    </div>
+                    <div class="col-6">
+                        <label class="form-label" for="edadPerro">Edad</label>
+                        <input class="form-control form-control-lg" field="*{edad}" id="edadPerro" name="edad" required
+                               type="text">
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-6">
+                        <label class="form-label" for="chipPerro">Chip</label>
+                        <select class="form-control form-control-lg" field="*{chip}" id="chipPerro" name="chip"
+                                type="text">
+                            <option value="Si">Si</option>
+                            <option value="No">No</option>
+                        </select>
+                    </div>
+                    <div class="col-6">
+                        <label class="form-label" for="castradoPerro">Castrado</label>
+                        <select class="form-control form-control-lg" field="*{castrado}" id="castradoPerro"
+                                name="castrado"
+                                type="text">
+                            <option value="Si">Si</option>
+                            <option value="No">No</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-6">
+                        <label class="form-label" for="razaPerro">Raza</label>
+                        <input class="form-control form-control-lg" field="*{raza}" id="razaPerro" name="raza" required
+                               type="text">
+                    </div>
+                    <div class="col-6">
+                        <label class="form-label" for="fotoPerro">Foto</label>
+                        <input class="form-control form-control-lg" id="fotoPerro" name="file" required type="file">
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-6">
+                        <h3 class="datos">Vacunas <h5><small>(marcar si el animal las tiene)</small></h5></h3>
+                    </div>
+                    <div class="col-6">
+                        <div class="me-4">
+                            <img class="logoli2"
+                                 src="https://img.icons8.com/external-justicon-flat-justicon/64/000000/external-cat-dog-and-cat-justicon-flat-justicon-2.png">
+                        </div>
+                    </div>
+                    <hr>
+                </div>
+
+                <div id="perro">
+                    <div class="row">
+                        <div class="col-3 form-check form-switch">
+                            <input class="form-check-input check" field="*{vacuna_primeraVacuna}" id="vacuna4"
+                                   name="tipoVacuna"
+
+                                   role="switch" type="checkbox" value="Primera Vacuna">
+                            <label class="form-check-label" for="vacuna4">Primera Vacuna</label>
+                        </div>
+                        <div class="col-3 form-check form-switch">
+                            <input class="form-check-input check" field="*{vacuna_polivalente}" id="vacuna5"
+                                   name="tipoVacuna"
+
+                                   role="switch" type="checkbox" value="Polivalente">
+                            <label class="form-check-label" for="vacuna5">Polivalente</label>
+                        </div>
+                        <div class="col-3 form-check form-switch">
+                            <input class="form-check-input check" field="*{vacuna_recuerdoPolivalente}" id="vacuna6"
+                                   name="tipoVacuna"
+
+                                   role="switch" type="checkbox" value="Recuerdo Polivalente">
+                            <label class="form-check-label" for="vacuna6">Recuerdo Polivalente</label>
+                        </div>
+                        <div class="col-3 form-check form-switch">
+                            <input class="form-check-input check" field="*{vacuna_rabia}" id="vacuna7" name="tipoVacuna"
+
+                                   role="switch" type="checkbox" value="Rabia">
+                            <label class="form-check-label" for="vacuna7">Rabia</label>
+                        </div>
+                    </div>
+                </div>
+
+                <br>
+                <input class="btn botonEditar" type="submit" value="Dar de alta">
+                <br>
+                <br>
+            </form>
+        </div>
+        <!-------------------------------------------Form Perro-------------------------------------------------------->
+
+        <div class="col-lg-9 col-md-12 col-sm-12" id="formGato">
+            <form enctype="multipart/form-data" method="POST" object="gato" th:action="@{/darDeAlta/gato}">
+                <div class="row">
+                    <div class="col-6">
+                        <h3 class="datos">Datos</h3>
+                    </div>
+                    <div class="col-6">
+                        <div class="me-4">
+                            <img class="logoli1"
+                                 src="https://img.icons8.com/external-justicon-flat-justicon/64/000000/external-dog-dog-and-cat-justicon-flat-justicon.png">
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="row mt-2">
+                    <div class="col-6">
+                        <label class="form-label" for="tipoGato">Tipo</label>
+                        <select class="form-control form-control-lg" field="*{tipo}" id="tipoGato" name="tipo">
+                            <option value="Perro">Perro</option>
+                            <option selected value="Gato">Gato</option>
+                        </select>
+                    </div>
+                    <div class="col-6">
+                        <label class="form-label" for="nombreGato">Nombre</label>
+                        <input class="form-control form-control-lg" field="*{nombre}" id="nombreGato" name="nombre"
+                               required
+                               type="text">
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-6">
+                        <label class="form-label" for="generoGato">Genero</label>
+                        <select class="form-control form-control-lg" field="*{genero}" id="generoGato" name="genero"
+                                type="text">
+                            <option value="Masculino">Masculino</option>
+                            <option value="Femenino">Femenino</option>
+                        </select>
+                    </div>
+                    <div class="col-6">
+                        <label class="form-label" for="edadGato">Edad</label>
+                        <input class="form-control form-control-lg" field="*{edad}" id="edadGato" name="edad" required
+                               type="text">
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-6">
+                        <label class="form-label" for="chipGato">Chip</label>
+                        <select class="form-control form-control-lg" field="*{chip}" id="chipGato" name="chip"
+                                type="text">
+                            <option value="Si">Si</option>
+                            <option value="No">No</option>
+                        </select>
+                    </div>
+                    <div class="col-6">
+                        <label class="form-label" for="castradoGato">Castrado</label>
+                        <select class="form-control form-control-lg" field="*{castrado}" id="castradoGato"
+                                name="castrado"
+                                type="text">
+                            <option value="Si">Si</option>
+                            <option value="No">No</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-6">
+                        <label class="form-label" for="chipGato">Raza</label>
+                        <input class="form-control form-control-lg" field="*{raza}" id="razaGato" name="raza" required
+                               type="text">
+                    </div>
+                    <div class="col-6">
+                        <label class="form-label" for="chipGato">Foto</label>
+                        <input class="form-control form-control-lg" id="fileGato" name="file" required type="file">
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-6">
+                        <h3 class="datos">Vacunas <h5><small>(marcar si el animal las tiene)</small></h5></h3>
+                    </div>
+                    <div class="col-6">
+                        <div class="me-4">
+                            <img class="logoli2"
+                                 src="https://img.icons8.com/external-justicon-flat-justicon/64/000000/external-cat-dog-and-cat-justicon-flat-justicon-2.png">
+                        </div>
+                    </div>
+                    <hr>
+                </div>
+
+                <div id="gato">
+                    <div class="row">
+                        <div class="col-4 form-check form-switch">
+                            <input class="form-check-input check" field="*{vacuna_GripeFelina}" id="vacuna1"
+                                   name="tipoVacuna"
+
+                                   role="switch" type="checkbox" value="Gripe Felina">
+                            <label class="form-check-label" for="vacuna1">Gripe Felina</label>
+                        </div>
+                        <div class="col-4 form-check form-switch">
+                            <input class="form-check-input check" field="*{vacuna_Panleucopenia}" id="vacuna2"
+                                   name="tipoVacuna"
+
+                                   role="switch" type="checkbox" value="Panleucopenia">
+                            <label class="form-check-label" for="vacuna2">Panleucopenia</label>
+                        </div>
+                        <div class="col-4 form-check form-switch">
+                            <input class="form-check-input check" field="*{vacuna_LeucemiaFelina}" id="vacuna3"
+                                   name="tipoVacuna"
+
+                                   role="switch" type="checkbox" value="Leucemia Felina">
+                            <label class="form-check-label" for="vacuna3">Leucemia Felina</label>
+                        </div>
+                    </div>
+                </div>
+
+                <br>
+                <input class="btn botonEditar" type="submit" value="Dar de alta">
+                <br>
+                <br>
+            </form>
+        </div>
+
+        <!-------------------------------------------Dar de Alta------------------------------------------------------->
+        <div class="col-lg-3 col-md-12 top col-sm-12 mt-md-0" id="mas">
+            <i class="bi bi-plus-circle-dotted iconoSubir"></i>
+        </div>
+        <div class="col-lg-3 col-md-12 col-sm-12" id="lista">
+            <i class="bi bi-list iconoSubir"></i>
+        </div>
+        <!-------------------------------------------Dar de Alta Ends-------------------------------------------------->
+
+
+    </div>
+</div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script crossorigin="anonymous"
+        integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30="
+        src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="/js/navbar.js" th:src="@{/js/navbar.js}"></script>
+<script src="/js/darDeAlta.js" th:src="@{/js/darDeAlta.js}"></script>
+<script src="/js/buscarAdoptante.js" th:src="@{/js/buscarAdoptante.js}"></script>
+
+</html>

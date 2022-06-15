@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Shelter</title>
+    <link rel="icon"
+          href="https://img.icons8.com/external-justicon-flat-justicon/64/000000/external-dog-dog-and-cat-justicon-flat-justicon-10.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css" rel="stylesheet"
+          crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="/css/registro.css" rel="stylesheet"/>
+    <link href="/css/verClave.css" rel="stylesheet"/>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="col-10">
+            <section class="gradient-custom">
+                <div class="container py-5 h-100">
+                    <div class="row justify-content-center align-items-center h-100">
+                        <div class="col-12 col-lg-9 col-xl-7">
+                            <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+                                <div class="card-body p-4 p-md-5">
+                                    <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Registrate</h3>
+                                    <br>
+                                    <h3>Datos de la Persona de contacto</h3>
+                                    <hr>
+                                    <form th:action="@{/registro/protectora}" object="protectora" method="POST" enctype="multipart/form-data">
+                                        <div class="row">
+                                            <div class="col-md-6 mb-1">
+                                                <div class="form-outline">
+                                                    <label class="form-label" for="dni_personaContacto">DNI Persona de contacto</label>
+                                                    <input required type="text"
+                                                           id="dni_personaContacto"
+                                                           class="form-control form-control-lg"
+                                                           name="dni_personaContacto"
+                                                           field="*{dni_personaContacto}"
+                                                    />
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 mb-1">
+                                                <div class="form-outline">
+                                                    <label class="form-label" for="contrasena">Contraseña</label>
+                                                    <div class="buttonIn">
+                                                        <input required type="password"
+                                                               id="contrasena"
+                                                               class="form-control form-control-lg contrasena"
+                                                               name="contrasena"
+                                                               field="*{contrasena}"
+                                                               data-status="pass"
+                                                        />
+                                                        <button type="button" class="mostrar"><i class="bi bi-eye ojo"></i></button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6 mb-1 pb-2">
+                                                <div class="form-outline">
+                                                    <label class="form-label" for="nombre_personaContacto">Nombre Persona de Contacto</label>
+                                                        <input required type="nombre_personaContacto" id="nombre_personaContacto"
+                                                               class="form-control form-control-lg"
+                                                               name="nombre_personaContacto"
+                                                               field="*{nombre_personaContacto}"
+                                                        />
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 mb-1">
+                                                <div class="form-outline">
+                                                    <label class="form-label" for="apellidos_personaContacto">Apellidos Persona de contacto</label>
+                                                    <input required type="text"
+                                                           id="apellidos_personaContacto"
+                                                           class="form-control form-control-lg"
+                                                           name="apellidos_personaContacto"
+                                                           field="*{apellidos_personaContacto}"
+                                                    />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <h3>Datos de la empresa</h3>
+                                        <hr>
+
+                                        <div class="row">
+                                            <div class="col-12 mb-1">
+                                                <label for="email" class="form-label">Email de la Protectora</label>
+                                                <input required type="text"
+                                                       class="form-control form-control-lg"
+                                                       id="email"
+                                                       name="email"
+                                                       field="*{email}"
+                                                />
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12 mb-1">
+                                                <div class="form-outline">
+                                                    <label class="form-label" for="nombre_protectora">Nombre Protectora</label>
+                                                    <input required type="text"
+                                                           id="nombre_protectora"
+                                                           class="form-control form-control-lg"
+                                                           name="nombre_protectora"
+                                                           field="*{nombre_protectora}"
+                                                    />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6 mb-1">
+                                                <div class="form-outline">
+                                                    <label class="form-label" for="CIF">CIF</label>
+                                                    <input required type="text"
+                                                           id="CIF"
+                                                           class="form-control form-control-lg"
+                                                           name="CIF"
+                                                           field="*{CIF}"
+                                                    />
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 mb-1">
+                                                <div class="form-outline">
+                                                    <label class="form-label" for="forma_juridica">Forma Juridica</label>
+                                                    <select required id="forma_juridica"
+                                                           class="form-control form-control-lg"
+                                                           name="forma_juridica"
+                                                           field="*{forma_juridica}"
+                                                    >
+                                                        <option value="Fundacion">Fundacion</option>
+                                                        <option value="Asociacion">Asociacion</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6 mb-1 d-flex align-items-center">
+                                                <div class="form-outline datepicker w-100">
+                                                    <label for="domicilio_social" class="form-label">Domicilia Social</label>
+                                                    <input required type="text"
+                                                           class="form-control form-control-lg"
+                                                           id="domicilio_social"
+                                                           name="domicilio_social"
+                                                    />
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 mb-1 pb-2">
+                                                <div class="form-outline">
+                                                    <label class="form-label" for="telefono_protectora">Telefono Protectora</label>
+                                                    <input required type="text"
+                                                           id="telefono_protectora"
+                                                           class="form-control form-control-lg"
+                                                           name="telefono_protectora"
+                                                           field="*{telefono_protectora}"
+                                                    />
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-3"></div>
+                                                    <div class="col-md-12 mb-1 pb-2 mt-2">
+                                                        <div class="form-outline">
+                                                            <label class="form-label" for="file">Logo de la empresa</label>
+                                                            <input required type="file"
+                                                                   id="file"
+                                                                   class="col-12 btn-file custom-file-input"
+                                                                   name="file"
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                <div class="col-3"></div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-3"></div>
+                                            <div class="col-6 mb-1 pb-2">
+                                                <div class="form-outline">
+                                                    <div class="mt-4 pt-2">
+                                                        <input type="submit" class="btn btn-primary btn-lg boton"
+                                                               style="text-decoration: none" value="Registrar"/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-3"></div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div class="col-1"></div>
+    </div>
+</div>
+
+<div class="modalDialog" id="openModal">
+    <div class="container-fluid containerModal">
+        <div class="row mt-3" id="row">
+            <div class="mt-1">
+                <a class="close" href="#close" title="Close">X</a>
+                <div class="container-fluid alert-danger">
+                    <div class="row">
+                        <div class="col-12">
+                            <h3>El correo introducido ya está dado de alta</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+<script src="/js/validarClave.js" th:src="@{/js/validarClave.js}"></script>
+<script src="/js/verClave.js" th:src="@{/js/verClave.js}"></script>
+</body>
+</html>

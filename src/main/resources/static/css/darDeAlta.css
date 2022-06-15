@@ -1,0 +1,166 @@
+.row_foreach{
+    position: relative;
+    margin-top: -100px;
+    margin-left: 105px;
+}
+
+.foto_forEach{
+    height: 200px;
+    width: 150px;
+    object-fit: cover;
+    object-position: center center;
+    z-index: 3;
+}
+
+.container_col7{
+    width: 10px;
+}
+
+.editar_forEach{
+    margin-top: 28px;
+    margin-left: 53px;
+    color: #34C75D;
+    font-size: 20px;
+
+}
+
+.basura_forEach{
+    margin-top: 35px;
+    margin-left: 53px;
+    color: #34C75D;
+    font-size: 20px;
+
+}
+
+.check_foreach{
+    margin-top: 35px;
+    margin-left: 53px;
+    color: #34C75D;
+    font-size: 20px;
+
+}
+
+.nombre_forEach{
+    margin-left:-7px;
+}
+
+#mas{
+    position:absolute;
+    top:20px;
+    right: 20px;
+    height:250px;
+    width:250px;
+    background-color: #34C75D;
+    color:white;
+    border-radius:15px;
+    font-size:150px;
+    padding-top: 25px;
+    padding-left: 45px;
+}
+
+#lista{
+    position:absolute;
+    top:20px;
+    right: 20px;
+    height:250px;
+    width:250px;
+    background-color: #34C75D;
+    color:white;
+    border-radius:15px;
+    font-size:150px;
+    padding-top: 25px;
+    padding-left: 45px;
+}
+
+.datos{
+    padding-top:20px
+}
+
+#formPerro{
+    margin-top:20px;
+}
+
+#formGato{
+    margin-top:20px;
+}
+
+.datos{
+    margin-top:20px;
+}
+
+.logoli2{
+    margin-top:35px;
+}
+
+.modal{
+    margin-top: 300px;
+    width: 800px;
+}
+
+#logoli{
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+
+.logoli{
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+
+#modal{
+    margin-top: 200px;
+    width: 800px;
+}
+
+.basura_forEachtrue{
+    margin-top: 50px;
+    margin-left: 53px;
+    color: #34C75D;
+    font-size: 20px;
+}
+
+.editar_forEachtrue{
+    margin-top: 45px;
+    margin-left: 53px;
+    color: #34C75D;
+    font-size: 20px;
+}
+
+#caja-textoTitulo{
+    border: #34C75D 5px dashed !important;
+    height: 500px !important;
+    color: #34C75D !important;
+    font-size: 2em !important;
+    align-items: center !important;
+    display: flex !important;
+    justify-content: center !important;
+    margin-top:25px;
+}
+
+.botonEditar{
+    background-color: #34C75D;
+    color: white;
+    border: transparent;
+}
+
+.botonEditar:hover{
+    background-color: white;
+    color: #34C75D;
+    border: 1px solid #34C75D;
+}
+
+.botonEditar1{
+    background-color: #34C75D;
+    color: white;
+    border: transparent;
+    border-radius:5px;
+    height: 48px;
+    width: 48px;
+    margin-top: 32px;
+}
+
+.card_forEach{
+    width: 230px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}

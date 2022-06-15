@@ -1,0 +1,111 @@
+body{
+    overflow: hidden;
+}
+
+.ui-menu{
+    list-style:none;
+    padding-left: 15px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    cursor: default;
+    position: absolute;
+    top: 65px !important;
+    width: 300px !important;
+    background: white;
+    box-shadow: 1px 12px 33px rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+}
+.ui-helper-hidden-accessible{
+    display: none;
+}
+
+.ui-menu:before {
+    border: 25px solid white;
+    content: '';
+    border-left-color: transparent;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    position: absolute;
+    top: -35px;
+    left: calc(10% - 25px)
+}
+
+#caja-textoTitulo{
+    border: #34C75D 5px dashed !important;
+    margin-top:25px !important;
+    margin-bottom:25px !important;
+    height: 400px !important;
+    color: #34C75D !important;
+    font-size: 2em !important;
+    align-items: center !important;
+    display: flex !important;
+    justify-content: center !important;
+}
+
+.text-area{
+    width: 100%;
+    height: 120px;
+}
+
+.botonBuscar{
+    background-color: #34C75D;
+    color: white;
+}
+
+.foto_forEach{
+    height: 400px !important;
+    margin-top:25px !important;
+    margin-bottom:25px !important;
+    padding-left: 20px;
+    object-fit: cover;
+    object-position: center center;
+}
+
+.image {
+    opacity: 1;
+    display: block;
+    height: auto;
+    transition: .5s ease;
+    backface-visibility: hidden;
+}
+
+.middle {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.columna:hover .image {
+    opacity: 0.3;
+}
+
+.columna:hover .middle {
+    opacity: 1;
+}
+
+.text {
+    color: #34C75D;
+    font-size: 20px;
+    margin-right: 660px;
+    cursor: default;
+}
+
+.btn-subir{
+    color: #34C75D;
+    background-color: white;
+    height: 73%;
+    border-color: #34C75D;
+    margin-bottom: 2px;
+    margin-top: 40px;
+}
+
+.btn-subir:hover{
+    background-color: #34C75D;
+    color: white;
+}
+

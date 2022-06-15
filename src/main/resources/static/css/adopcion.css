@@ -1,0 +1,86 @@
+.v-line{
+    border-left: 1px solid grey;
+    height:60%;
+    left: 50%;
+    position: absolute;
+}
+
+.foto_animal{
+    height: 300px;
+    width: 200px;
+    margin-left: 20%;
+    object-fit: cover;
+    object-position: center center;
+}
+
+#caja-textoTitulo{
+    border: #34C75D 5px dashed !important;
+    margin-bottom:25px !important;
+    height: 290px !important;
+    color: #34C75D !important;
+    font-size: 2em !important;
+    align-items: center !important;
+    display: flex !important;
+    justify-content: center !important;
+}
+
+.botonBuscar{
+    background-color: #34C75D;
+    color: white;
+}
+
+.botonBuscar1{
+    background-color: #34C75D;
+    color: white;
+    width: 200px;
+    height: 40px;
+    margin-left: 37%;
+}
+
+.ui-menu{
+    list-style:none;
+    padding-left: 15px;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    cursor: default;
+    position: relative;
+    top: 25px;
+    width: calc(100% - 350px) !important;
+    background: white;
+    box-shadow: 1px 12px 33px rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    position: absolute;
+}
+.ui-helper-hidden-accessible{
+    display: none;
+}
+
+.ui-menu:before {
+    border: 25px solid white;
+    content: '';
+    border-left-color: transparent;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    position: absolute;
+    top: -35px;
+    left: calc(10% - 25px);
+
+}
+
+body{
+    overflow-y: hidden;
+    overflow-x: hidden;
+    overflow-z: hidden;
+}
+
+.foto_perfil{
+    width: 200px;
+    height: 300px;
+    margin: auto;
+    object-fit: cover;
+    object-position: center center;
+}
+
+.row_texto{
+    margin-left: 20px;
+}
