@@ -61,22 +61,19 @@ public class BusquedaController {
     @PostMapping( "/perfil")
     public String postPublicacion(@RequestParam("buscador") String parametro, HttpSession session) {
 
-        List<Protectora> protectoras = protectoraRepositorioCRUD.findByNombre(parametro);
         Protectora protectora = new Protectora();
 
-        if (protectoras.size() == 0 || protectoras == null) {
-            return "indexAdoptante";
-        } else {
             if(parametro.split(", ")[0].equals("") || parametro.split(", ") == null){
                 return "redirect:/indexAdoptante/#openModal";
             } else if (parametro.split(", ").length <= 2) {
+                List<Protectora> protectoras = protectoraRepositorio.findByNombre(parametro);
                 protectora = protectoras.get(0);
             } else {
 
-            String[] infoPartes = parametro.split(", ");
-            String formaJuridica = infoPartes[0];
-            String nombreEmpresa = infoPartes[1];
-            String correo = infoPartes[2];
+                String[] infoPartes = parametro.split(", ");
+                String formaJuridica = infoPartes[0];
+                String nombreEmpresa = infoPartes[1];
+                String correo = infoPartes[2];
 
             Usuario usuario = (Usuario) session.getAttribute("Usuario");
             Adoptante adoptante = adoptanteRepositorio.findByEmail(usuario.getEmail());
@@ -95,7 +92,6 @@ public class BusquedaController {
                 }
             }
         }
-    }
 
         List<Publicacion> publicaciones = publicacionRepositorio.findByProtectora(protectora);
 

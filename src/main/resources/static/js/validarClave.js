@@ -19,7 +19,7 @@ $(document).ready (function(){
 
             span.text(vacio).addClass('vacio').addClass('negacion').addClass('alert-danger');
         } else if (valor1.length>=8 && valor1.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$$/)){
-
+            $("#boton").prop('disabled', false);
             span.text(confirmacion).addClass('confirmacion').addClass('alert-success');
         } else if(valor1.length<8 || !valor1.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/)){
             span.text(longitud).addClass('negacion').addClass('alert-danger');

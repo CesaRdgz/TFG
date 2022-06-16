@@ -503,6 +503,7 @@ input:-webkit-autofill:active {
     height: 500px;
     margin-bottom: 20px;
     margin-top:20px;
+
 }
 
 .foto_publicacion-col-122{
@@ -519,4 +520,14 @@ input:-webkit-autofill:active {
 .texto-publicacion{
     color: white;
     text-shadow: black 0.1em 0.1em 0.2em;
+}
+
+@media (min-width: 1800px) {
+    .card-publicacion-col122{
+        width: 500px;
+        height: 500px;
+        margin-bottom: 20px;
+        margin-top:20px;
+        margin-left: 150px;
+    }
 }
