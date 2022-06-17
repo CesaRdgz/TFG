@@ -109,3 +109,10 @@ body{
     color: white;
 }
 
+.foto_forEach{
+    height: 500px;
+    width: 400px;
+    object-fit: cover;
+    object-position: center center;
+}
+

@@ -195,10 +195,10 @@
                                                                th:text="${publicacion.getPie_foto()}"></p>
 
                                                             <a th:href="@{/publicacion/borrar/{id}(id=${publicacion.id})}"><i
-                                                                    class="bi bi-trash bi-heart2"
+                                                                    class="bi bi-trash bi-heart2" th:id="basura"
                                                                     data-status=""></i></a>
                                                             <a th:href="@{/publicacion/editar/{id}(id=${publicacion.id})}"><i
-                                                                    class="bi bi-pencil bi-heart1"
+                                                                    class="bi bi-pencil bi-heart1" th:id="lapiz"
                                                                     data-status=""></i></a>
 
                                                         </div>
